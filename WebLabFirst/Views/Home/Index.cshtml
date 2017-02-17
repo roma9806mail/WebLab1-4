@@ -4,23 +4,23 @@
     <div class="input-section ">
         <div class="login-input">
             <label for="email" class="login-label">Enter your email: </label>
-            <input type="email" id="email" name="Email" />
+            <input type="email" id="email" name="Email" required/>
         </div>
         <div class="login-input">
             <label for="password" class="login-label">Enter your rassword: </label>
-            <input type="password" id="password" name="password" />
+            <input type="password" id="password" name="password" required/>
         </div>
     </div>
     <div class="input-section ">
         <label for="sendingMethod">Choose Method, you wish to enter your data: </label>
-        <select id="sendingMethod" name="Method">
+        <select id="sendingMethod" name="Method" required>
             <option>Get</option>
             <option selected>Post</option>
         </select>
     </div>
     <div class="input-section">
         <label for="skill">Choose your skill: </label>
-        <select id="skill" name="Role">
+        <select id="skill" name="Role" required>
             <option selected>Junior</option>
             <option>Intermediate</option>
             <option>Senior</option>
@@ -28,7 +28,7 @@
     </div>
     <div class="input-section">
         <label for="cv">Choose your CV: </label>
-        <input type="file" name="cv" id="CV" />
+        <input type="file" name="cv" id="CV" required/>
     </div>
     <div class="input-section">
         <center><input id="send" type="submit" value="Send" /> </center>

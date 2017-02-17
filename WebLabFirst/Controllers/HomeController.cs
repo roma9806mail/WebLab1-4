@@ -25,5 +25,26 @@ namespace WebLabFirst.Controllers
         {
             return View(model);
         }
+
+        public ViewResult Photos()
+        {
+            return View();
+        }
+
+        public ViewResult Text()
+        {
+            return View();
+        }
+
+        public ViewResult Messages()
+        {
+            return View();
+        }
+
+        public ViewResult Canvas()
+        {
+            return View();
+        }
+
     }
 }

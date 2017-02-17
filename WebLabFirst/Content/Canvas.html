@@ -1,0 +1,99 @@
+﻿<html>
+<head>
+    <title>Web lab first</title>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            background: #2b2c30;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="900">
+        Batman
+    </canvas>
+
+    <script>
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+
+        // On rajoute un élément canvas dont on se servira comme buffer
+        // et auquel on met les mêmes dimensions que le canvas de rendu
+        var buffer = document.body.appendChild(document.createElement('canvas'));
+        buffer.width = c.width;
+        buffer.height = c.height;
+        buffer.style.width = c.style.width;
+        buffer.style.height = c.style.height;
+        // commente la ligne suivante si tu veux voir le rendu dans le buffer
+        buffer.style.display = 'none';
+        var ctxBuf = buffer.getContext('2d');
+        ctx.save();
+
+        function drawBatman(ctx, borderColor, backgroundColor) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(200, 100);
+            ctx.quadraticCurveTo(80, 300, 400, 300);
+            ctx.lineTo(410, 200);
+            ctx.lineTo(430, 250);
+            ctx.lineTo(450, 250);
+            ctx.lineTo(470, 250);
+            ctx.lineTo(490, 200);
+            ctx.lineTo(500, 300);
+            ctx.quadraticCurveTo(820, 300, 700, 100);
+            ctx.quadraticCurveTo(950, 200, 850, 400);
+            ctx.bezierCurveTo(830, 300, 600, 380, 670, 450);
+            ctx.bezierCurveTo(610, 400, 450, 490, 450, 600);
+            ctx.bezierCurveTo(450, 500, 300, 400, 230, 450);
+            ctx.bezierCurveTo(300, 380, 60, 300, 50, 400);
+            ctx.quadraticCurveTo(-50, 200, 200, 100);
+
+            ctx.closePath();
+            ctx.lineWidth = 1;
+            ctx.fillStyle = backgroundColor;
+            ctx.fill();
+            ctx.strokeStyle = borderColor;
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        drawBatman(ctxBuf, '#707070', '#181818');
+
+        //img = ctx.drawImage(buffer,0,0,900,800,0,0,100,100);
+        //ctx.drawImage(buffer,0,0,100,100,0,0,100,100);
+        function drawCut(ctx, x, y) {
+            console.log(x, y);
+            ctx.save();
+            // Create a circle
+            ctx.beginPath();
+            // Create a shape, of some sort
+            ctx.beginPath();
+            ctx.moveTo(x + 0, y + 0);
+            ctx.lineTo(x + 100, y + 0);
+            ctx.lineTo(x + 100, y + 100);
+            ctx.lineTo(x + 0, y + 100);
+            ctx.lineTo(x + 0, y + 0);
+            ctx.closePath();
+            // Clip to the current path
+            ctx.clip();
+            ctx.fillStyle = "#333";
+            ctx.fill();
+            ctx.drawImage(buffer, 0, 0, 900, 800, 55, 35, 900, 800);
+            // Undo the clipping
+            ctx.restore();
+        }
+
+        for (offsetY = 0; offsetY < 800; offsetY += 100) {
+            for (offsetX = 0; offsetX < 1100; offsetX += 100) {
+                console.log(offsetX);
+                drawCut(ctx, offsetX, offsetY);
+            }
+        }
+
+        ctx.restore();
+
+
+
+    </script>
+</body>
+</html>

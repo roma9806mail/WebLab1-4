@@ -3,15 +3,24 @@
 <head>
     <title>Web lab first</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="~/Content/bootstrap.css" />
     <link rel="stylesheet" href="~/Content/WebLab1.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
     @Scripts.Render("~/Scripts/jquery.js")
     @Scripts.Render("~/Scripts/WebLab1.js")
 </head>
-<body class="container">
-    <h1>Applying for .NET developer position</h1>
-    <div class="form-wrap" align="center">
-        @RenderBody()
+<body>
+    <div class="links-tab">
+        @Html.ActionLink("Go to apply", "Index", null, new { @class = "link" })
+        @Html.ActionLink("Photos", "Photos", null, new { @class = "link" })
+        @Html.ActionLink("Text", "Text", null, new { @class = "link" })
+        @Html.ActionLink("Canvas", "Canvas", null, new { @class = "link" })
+        @Html.ActionLink("Messages", "Messages", null, new { @class = "link" })
+    </div>
+    <div class="container">
+        <h1>Applying for .NET developer position</h1>
+        <div class="form-wrap" align="center">
+            @RenderBody()
+        </div>
     </div>
 </body>
 </html>
