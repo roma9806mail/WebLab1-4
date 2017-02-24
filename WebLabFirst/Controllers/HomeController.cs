@@ -15,15 +15,20 @@ namespace WebLabFirst.Controllers
         }
 
         [HttpGet]
-        public ViewResult FeedBackGet([Bind(Include = "Role,Email,Method,CV")] FeedBackModel model)
+        public JsonResult FeedBackGet([Bind(Include = "Role,Email,Method,CV")] FeedBackModel model)
         {
-            return View(model);
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public ViewResult FeedBackPost([Bind(Include = "Role,Email,Method,CV")] FeedBackModel model)
+        public JsonResult FeedBackPost([Bind(Include = "Role,Email,Method,CV")] FeedBackModel model)
         {
-            return View(model);
+            return Json(model);
+        }
+
+        public ViewResult SomeJQuery()
+        {
+            return View();
         }
 
         public ViewResult Photos()

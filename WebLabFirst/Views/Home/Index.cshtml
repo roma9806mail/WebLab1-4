@@ -28,12 +28,16 @@
     </div>
     <div class="input-section">
         <label for="cv">Choose your CV: </label>
-        <input type="file" name="cv" id="CV" required/>
+        <input type="file" name="cv" id="cv" required/>
     </div>
+    <input type="text" name="CV" id="CV"/>
     <div class="input-section">
-        <center><input id="send" type="submit" value="Send" /> </center>
+        <center><input id="send" type="button" value="Send" /> </center>
     </div>
 </form>
-<script>
-    
-</script>
+<div class="feed-back">
+    <p id="email-result"></p>
+    <p id="role-result"></p>
+    <p id="method-result"></p>
+    <p id="cv-result"></p>
+</div>

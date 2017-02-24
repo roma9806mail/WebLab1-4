@@ -36,3 +36,43 @@ $(document).ready(function () {
     }
     );
 });
+$(document).ready(function () {
+    $("#show").hide();
+    $("#hide").click(function () {
+        $("#hide").hide();
+        $("#show").show();
+        $(".piece-of").hide();
+    });
+    $("#show").click(function () {
+        $("#hide").show();
+        $("#show").hide();
+        $(".piece-of").show();
+    });
+});
+$(document).ready(function () {
+    $("#add-hello-world").click(function () {
+        $("#hello-world").html("<p>Hello World</p>");
+    });
+    $("#add-red").click(function () {
+        $("#hello-world").css("color", "red");
+    });
+    $("#reverse-text").click(function () {
+        $("#hello-world").reverseText();
+    });
+});
+$(document).ready(function () {
+    $(".feed-back").hide();
+    $("#CV").hide();
+    $("#send").click(function () {
+        $("#CV").val($("#cv").val().substr($("#cv").val().lastIndexOf("\\") + 1));
+        var form = $('form').serialize();
+        $("form").hide();
+        $.post($("form").attr("action"), form, function (result) {
+            $("#email-result").html("Your Email: " + result.Email);
+            $("#cv-result").html("Your CV Name: " + result.CV);
+            $("#method-result").html("Your Method: " + result.Method);
+            $("#role-result").html("Your Role: " + result.Role);
+        });
+        $(".feed-back").show();
+    });
+});
